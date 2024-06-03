@@ -1,8 +1,38 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{9875271A-16EB-4AE0-A410-FC53D4F06063}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{460F2718-60EF-4CF3-9C0E-0058FD45C3CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.API", "Services\Catalog\Catalog.API\Catalog.API.csproj", "{C05AAC58-F450-44BA-B90B-927772A23F72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{974CAF1B-5E95-4CDA-8724-4DF2C3D71884}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{8318327D-D173-4D6C-A58D-9D4B69D8B8F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks", "BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj", "{C0A6D9F2-04A4-4116-87DD-32AD1FC59203}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{460F2718-60EF-4CF3-9C0E-0058FD45C3CB} = {9875271A-16EB-4AE0-A410-FC53D4F06063}
+		{C05AAC58-F450-44BA-B90B-927772A23F72} = {460F2718-60EF-4CF3-9C0E-0058FD45C3CB}
+		{C0A6D9F2-04A4-4116-87DD-32AD1FC59203} = {8318327D-D173-4D6C-A58D-9D4B69D8B8F6}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C05AAC58-F450-44BA-B90B-927772A23F72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C05AAC58-F450-44BA-B90B-927772A23F72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C05AAC58-F450-44BA-B90B-927772A23F72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C05AAC58-F450-44BA-B90B-927772A23F72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0A6D9F2-04A4-4116-87DD-32AD1FC59203}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0A6D9F2-04A4-4116-87DD-32AD1FC59203}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0A6D9F2-04A4-4116-87DD-32AD1FC59203}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0A6D9F2-04A4-4116-87DD-32AD1FC59203}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
