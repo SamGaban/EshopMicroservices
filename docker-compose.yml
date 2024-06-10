@@ -4,6 +4,9 @@
     
   basketdb:
     image: postgres
+    
+  distributedcache:
+    image: redis
 
   catalog.api:
     image: catalog.api
@@ -14,4 +17,3 @@
 volumes:
   postgres_catalog:
   postgres_basket:
-  catalog.api:
