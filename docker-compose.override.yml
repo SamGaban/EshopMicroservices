@@ -89,12 +89,14 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__Database=Server=basketdb;Port=5432;Database=BasketDb;Username=postgres;Password=postgres
       - ConnectionStrings__Redis=distributedcache:6379
+      - GrpcConfigs__DiscountUrl=https://discount.grpc:8443
       - ASPNETCORE_HTTP_PORT=8080
       - ASPNETCORE_HTTPS_PORT=8443
       - ASPNETCORE_URLS=https://+:8443;http://+:8080
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/app/ssl-certs/your_certificate.pfx
       - ASPNETCORE_Kestrel__Certificates__Default__Password=c3e6r9t2
     depends_on:
+      - discount.grpc
       - basketdb
       - distributedcache
     ports:
@@ -104,3 +106,20 @@ services:
       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
       - ./ssl-certs:/app/ssl-certs:ro # Mount the directory with SSL certificates
+      
+  discount.grpc:
+    environment:
+        - ASPNETCORE_ENVIRONMENT=Development
+        - ASPNETCORE_HTTP_PORT=8080
+        - ASPNETCORE_HTTPS_PORT=8443
+        - ASPNETCORE_URLS=https://+:8443;http://+:8080
+        - ASPNETCORE_Kestrel__Certificates__Default__Path=/app/ssl-certs/your_certificate.pfx
+        - ASPNETCORE_Kestrel__Certificates__Default__Password=c3e6r9t2
+        - ConnectionStrings__Database=Data Source=discountdb;
+    ports:
+      - "6002:8080"
+      - "6062:8443"
+    volumes:
+        - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+        - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+        - ./ssl-certs:/app/ssl-certs:ro # Mount the directory with SSL certificate
